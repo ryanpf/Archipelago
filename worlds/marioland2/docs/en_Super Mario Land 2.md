@@ -52,8 +52,9 @@ level for obtaining a specific number of coins within a single playthrough of th
 
 ## When the player receives an item, what happens?
 
-There is no in-game indication that an item has been received. You will need to watch the client or web tracker to be
-sure you're aware of the items you've received.
+When the game is running in BizHawk, incoming and outgoing multiworld item messages are shown in the emulator's
+message queue. If you are not using BizHawk, you will still need to watch the client or web tracker to keep track of
+item traffic.
 
 ## Special Thanks to:
 

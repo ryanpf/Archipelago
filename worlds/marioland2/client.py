@@ -29,6 +29,7 @@ class MarioLand2Client(BizHawkClient):
         if game_name == "MARIOLAND2":
             ctx.game = self.game
             ctx.items_handling = 0b111
+            ctx.text_passthrough_categories.update(("incoming", "outgoing"))
             return True
         return False
 
