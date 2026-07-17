@@ -3,13 +3,14 @@ import logging
 
 from NetUtils import ClientStatus
 from worlds._bizhawk.client import BizHawkClient
-from worlds._bizhawk import read, write, guarded_write
+from worlds._bizhawk import read, write, guarded_write, set_message_interval
 
 from .rom_addresses import rom_addresses
 
 logger = logging.getLogger("Client")
 
 BANK_EXCHANGE_RATE = 20000000000
+MESSAGE_INTERVAL_SECONDS = 5.0
 
 overworld_music = (0x05, 0x06, 0x0D, 0x0E, 0x10, 0x12, 0x1B, 0x1C, 0x1E)
 
@@ -30,6 +31,7 @@ class MarioLand2Client(BizHawkClient):
             ctx.game = self.game
             ctx.items_handling = 0b111
             ctx.text_passthrough_categories.update(("incoming", "outgoing"))
+            await set_message_interval(ctx.bizhawk_ctx, MESSAGE_INTERVAL_SECONDS)
             return True
         return False
 
